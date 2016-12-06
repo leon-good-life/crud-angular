@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as _ from "lodash";
 
 @Injectable()
 export class DataService {
@@ -60,5 +61,9 @@ export class DataService {
 
     public addNewContact(contact) {
         this.data.push(contact);
+    }
+
+    public deleteContact(email) {
+        _.remove(this.data, {'email': email});
     }
 }

@@ -11,13 +11,15 @@ import { DataService } from '../utils/data.service';
         <th>Company</th>
         <th>Phone</th>
         <th>Email</th>
+        <th>Actions</th>
       </tr>
       <tr *ngFor="let contact of dataService.data">
         <td>{{contact.firstName}}</td>
         <td>{{contact.lastName}}</td>
         <td>{{contact.company}}</td>
         <td>{{contact.phone}}</td>
-        <td>{{contact.email}}</td>
+        <td #emailEl>{{contact.email}}</td>
+        <td><button (click)="onDelete(emailEl.innerText)">Delete</button></td>
       </tr>
     </table>  
   `,
@@ -37,8 +39,16 @@ import { DataService } from '../utils/data.service';
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
+    button {
+      padding: 5px;
+      width: 100%;
+    }
   `]
 })
 export class ContactsGridComponent {
   constructor(private dataService: DataService) {}
+
+  onDelete(email) {
+    this.dataService.deleteContact(email);
+  }
 }
