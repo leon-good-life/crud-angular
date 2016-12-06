@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { DataService } from '../utils/data.service';
 
 @Component({
   selector: 'contacts-grid',
@@ -11,12 +12,12 @@ import { Component, Input } from '@angular/core';
         <th>Phone</th>
         <th>Email</th>
       </tr>
-      <tr *ngFor="let item of items">
-        <td>{{item.firstName}}</td>
-        <td>{{item.lastName}}</td>
-        <td>{{item.company}}</td>
-        <td>{{item.phone}}</td>
-        <td>{{item.email}}</td>
+      <tr *ngFor="let contact of dataService.data">
+        <td>{{contact.firstName}}</td>
+        <td>{{contact.lastName}}</td>
+        <td>{{contact.company}}</td>
+        <td>{{contact.phone}}</td>
+        <td>{{contact.email}}</td>
       </tr>
     </table>  
   `,
@@ -39,8 +40,5 @@ import { Component, Input } from '@angular/core';
   `]
 })
 export class ContactsGridComponent {
-  @Input() items;
-
-  constructor () {}
-  
+  constructor(private dataService: DataService) {}
 }
