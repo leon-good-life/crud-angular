@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'grid',
+  selector: 'contacts-grid',
   template: `
     <table>
       <tr>
@@ -38,10 +38,9 @@ import { Component, Input, OnInit } from '@angular/core';
     }
   `]
 })
-export class GridComponent {
+export class ContactsGridComponent {
   @Input() items;
 
-  constructor () {
-  }
+  constructor () {}
   
 }

@@ -4,7 +4,7 @@ import { DataService } from './utils/data.service';
 @Component({
   selector: 'app-root',
   template: `
-    <grid [items]="dataService.data"></grid>
+    <contacts-grid [items]="dataService.data"></contacts-grid>
   `
 })
 export class AppComponent {

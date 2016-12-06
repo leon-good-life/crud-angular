@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { GridComponent } from './grid/grid.component';
+import { ContactsGridComponent } from './contactsGrid/contactsGrid.component';
+import { NewContactFormComponent } from './newContactForm/newContactForm.component';
 import { DataService } from './utils/data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GridComponent
+    ContactsGridComponent,
+    NewContactFormComponent
   ],
   imports: [
     BrowserModule,
