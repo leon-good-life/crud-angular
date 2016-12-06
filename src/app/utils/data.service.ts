@@ -57,4 +57,8 @@ export class DataService {
             } 
         ];
     }
+
+    public addNewContact(contact) {
+        this.data.push(contact);
+    }
 }

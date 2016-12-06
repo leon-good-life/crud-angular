@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { DataService } from '../utils/data.service';
 
 @Component({
   selector: 'new-contact-form',
   template: `
-    <form [formGroup]="newContactForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="newContactForm">
       <input formControlName="firstName" placeholder="First Name">
       <input formControlName="lastName" placeholder="Last Name">
       <input formControlName="company" placeholder="Company">
@@ -13,7 +14,6 @@ import { DataService } from '../utils/data.service';
       <input formControlName="email" placeholder="Email">
       <button type="submit">Add new contact</button>
     </form>
-    <h1>debug: {{newContactForm.value | json}}</h1>
   `,
   styles: [`
     * {
@@ -40,7 +40,7 @@ import { DataService } from '../utils/data.service';
 export class NewContactFormComponent {
   newContactForm: FormGroup;
   
-  constructor(private dataService: DataService, public fb: FormBuilder) {
+  constructor(private dataService: DataService, public fb: FormBuilder, public router: Router) {
     this.newContactForm = this.fb.group({
       firstName: '',
       lastName: '',
@@ -48,5 +48,10 @@ export class NewContactFormComponent {
       phone: '',
       email: ''
     });
+  }
+
+  onSubmit() {
+    this.dataService.addNewContact(this.newContactForm.value);
+    this.router.navigate(['contacts-grid']);
   }
 }
