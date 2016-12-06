@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ContactsGridComponent } from './contactsGrid/contactsGrid.component';
 import { NewContactFormComponent } from './newContactForm/newContactForm.component';
 import { DataService } from './utils/data.service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DataService } from './utils/data.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [
     DataService
