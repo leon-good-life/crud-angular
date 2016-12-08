@@ -18,8 +18,8 @@ import { DataService } from '../utils/data.service';
         <td>{{contact.lastName}}</td>
         <td>{{contact.company}}</td>
         <td>{{contact.phone}}</td>
-        <td #emailEl>{{contact.email}}</td>
-        <td><button (click)="onDelete(emailEl.innerText)">Delete</button></td>
+        <td>{{contact.email}}</td>
+        <td><button (click)="onDelete(contact.id)">Delete</button></td>
       </tr>
     </table>  
   `,
@@ -48,7 +48,7 @@ import { DataService } from '../utils/data.service';
 export class ContactsGridComponent {
   constructor(private dataService: DataService) {}
 
-  onDelete(email) {
-    this.dataService.deleteContact(email);
+  onDelete(id) {
+    this.dataService.deleteContact(id);
   }
 }
