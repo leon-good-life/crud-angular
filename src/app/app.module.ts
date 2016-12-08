@@ -8,6 +8,7 @@ import { RouterModule } from "@angular/router";
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { ContactsGridComponent } from './contactsGrid/contactsGrid.component';
+import { ContactFormComponent } from './utils/ContactForm.component';
 import { NewContactFormComponent } from './newContactForm/newContactForm.component';
 import { DataService } from './utils/data.service';
 
@@ -16,7 +17,8 @@ import { DataService } from './utils/data.service';
   declarations: [
     AppComponent,
     ContactsGridComponent,
-    NewContactFormComponent
+    NewContactFormComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

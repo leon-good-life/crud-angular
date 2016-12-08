@@ -6,14 +6,7 @@ import { DataService } from '../utils/data.service';
 @Component({
   selector: 'new-contact-form',
   template: `
-    <form (ngSubmit)="onSubmit()" [formGroup]="newContactForm">
-      <input formControlName="firstName" placeholder="First Name">
-      <input formControlName="lastName" placeholder="Last Name">
-      <input formControlName="company" placeholder="Company">
-      <input formControlName="phone" placeholder="Phone">
-      <input formControlName="email" placeholder="Email">
-      <button type="submit">Add new contact</button>
-    </form>
+    <contact-form [submitEvent]="submitEvent" [submitBtnText]="submitBtnText"></contact-form>
   `,
   styles: [`
     * {
@@ -38,20 +31,12 @@ import { DataService } from '../utils/data.service';
   `]
 })
 export class NewContactFormComponent {
-  newContactForm: FormGroup;
+  submitBtnText = 'Add new contact';
   
-  constructor(private dataService: DataService, public fb: FormBuilder, public router: Router) {
-    this.newContactForm = this.fb.group({
-      firstName: '',
-      lastName: '',
-      company: '',
-      phone: '',
-      email: ''
-    });
-  }
+  constructor(public dataService: DataService, public router: Router) {}
 
-  onSubmit() {
-    this.dataService.addNewContact(this.newContactForm.value);
+  submitEvent = (val) => {
+    this.dataService.addNewContact(val);
     this.router.navigate(['contacts-grid']);
   }
 }
