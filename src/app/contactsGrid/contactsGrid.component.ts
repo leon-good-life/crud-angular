@@ -54,10 +54,10 @@ export class ContactsGridComponent {
   }
 
   onEdit(contactObj) {
-    this.router.navigate(['edit-contact-form'], { queryParams: contactObj });
+    this.router.navigate(['edit-contact'], { queryParams: contactObj });
   }
 
   addNewContact() {
-    this.router.navigate(['new-contact-form']);
+    this.router.navigate(['add-new-contact']);
   }
 }

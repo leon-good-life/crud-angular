@@ -4,8 +4,8 @@ import { NewContactFormComponent } from './newContactForm/newContactForm.compone
 import { EditContactFormComponent } from './editContactForm/editContactForm.component';
 
 export const routes:Routes = [
-    { path:'', redirectTo:'contacts-grid', pathMatch:'full' },
-    { path:'contacts-grid', component: ContactsGridComponent },
-    { path:'new-contact-form',  component: NewContactFormComponent},
-    { path:'edit-contact-form',  component: EditContactFormComponent}
+    { path:'', redirectTo:'contacts-list', pathMatch:'full' },
+    { path:'contacts-list', component: ContactsGridComponent },
+    { path:'add-new-contact',  component: NewContactFormComponent},
+    { path:'edit-contact',  component: EditContactFormComponent}
 ];

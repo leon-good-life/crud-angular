@@ -17,10 +17,10 @@ export class EditContactFormComponent {
 
   submitEvent = (contact) => {
     this.dataService.updateContact(contact);
-    this.router.navigate(['contacts-grid']);
+    this.router.navigate(['contacts-list']);
   }
 
   cancelEvent = () => {
-    this.router.navigate(['contacts-grid']);
+    this.router.navigate(['contacts-list']);
   }
 }
