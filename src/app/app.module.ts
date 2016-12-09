@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ContactsGridComponent } from './contactsGrid/contactsGrid.component';
 import { ContactFormComponent } from './utils/ContactForm.component';
 import { NewContactFormComponent } from './newContactForm/newContactForm.component';
+import { EditContactFormComponent } from './editContactForm/editContactForm.component';
 import { DataService } from './utils/data.service';
 
 
@@ -18,7 +19,8 @@ import { DataService } from './utils/data.service';
     AppComponent,
     ContactsGridComponent,
     NewContactFormComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    EditContactFormComponent
   ],
   imports: [
     BrowserModule,

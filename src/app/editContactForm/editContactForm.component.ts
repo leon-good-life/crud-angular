@@ -4,19 +4,19 @@ import { Router } from '@angular/router';
 import { DataService } from '../utils/data.service';
 
 @Component({
-  selector: 'new-contact-form',
+  selector: 'edit-contact-form',
   template: `
-    <h1>Add New Contact</h1>
+    <h1>Edit Contact</h1>
     <contact-form [submitEvent]="submitEvent" [cancelEvent]="cancelEvent"></contact-form>
   `
 })
-export class NewContactFormComponent {
-  submitBtnText = 'Add new contact';
+export class EditContactFormComponent {
+  submitBtnText = 'Update contact';
   
   constructor(public dataService: DataService, public router: Router) {}
 
   submitEvent = (contact) => {
-    this.dataService.addNewContact(contact);
+    this.dataService.updateContact(contact);
     this.router.navigate(['contacts-grid']);
   }
 

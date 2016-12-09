@@ -8,56 +8,56 @@ export class DataService {
     constructor () {
         this.data = [
             {
-                id: 1,
+                id: '1481235831567',
                 firstName: 'Bill',
                 lastName: 'Gates',
                 company: 'Microsoft',
                 phone: '054123456',
                 email: 'bill@microsoft.com'
             }, {
-                id: 2,
+                id: '1481235831568',
                 firstName: 'Mark',
                 lastName: 'Zuckerberg',
                 company: 'Facebook',
                 phone: '050123456',
                 email: 'mark@facebook.com'
             }, {
-                id: 3,
+                id: '1481235831569',
                 firstName: 'Larry',
                 lastName: 'Page',
                 company: 'Google',
                 phone: '053123456',
                 email: 'larry.page@gmail.com'
             }, {
-                id: 4,
+                id: '1481235831570',
                 firstName: 'Sergey',
                 lastName: 'Brin',
                 company: 'Google',
                 phone: '053123456',
                 email: 'sergey.brin@gmail.com'
             }, {
-                id: 5,
+                id: '1481235831571',
                 firstName: 'Larry',
                 lastName: 'Ellison',
                 company: 'Oracle',
                 phone: '053123456',
                 email: 'larry@oracle.com'
             }, {
-                id: 6,
+                id: '1481235831572',
                 firstName: 'Jeff',
                 lastName: 'Bezoz',
                 company: 'Amazon',
                 phone: '053123456',
                 email: 'jeff@amazon.com'
             }, {
-                id: 7,
+                id: '1481235831573',
                 firstName: 'Elon',
                 lastName: 'Mask',
                 company: 'Tesla',
                 phone: '053123456',
                 email: 'elon@tesla.com'
             }, {
-                id: 8,
+                id: '1481235831574',
                 firstName: 'Tim',
                 lastName: 'Cook',
                 company: 'Apple',
@@ -68,11 +68,15 @@ export class DataService {
     }
 
     public addNewContact(contact) {
-        contact.id = Date.now();
         this.data.push(contact);
     }
 
     public deleteContact(id) {
         _.remove(this.data, {'id': id});
+    }
+
+    public updateContact(contact) {
+        let index = _.findIndex(this.data, {'id': contact.id});
+        this.data[index] = contact;
     }
 }
