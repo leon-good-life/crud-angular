@@ -8,14 +8,19 @@ import { DataService } from '../utils/data.service';
     <h1>Contacts List</h1>
     <table>
       <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Company</th>
-        <th>Phone</th>
-        <th>Email</th>
+        <th (click)="columnClick('firstName')"
+            [class]="whichClass('firstName')">First Name</th>
+        <th (click)="columnClick('lastName')"
+            [class]="whichClass('lastName')">Last Name</th>
+        <th (click)="columnClick('company')"
+            [class]="whichClass('company')">Company</th>
+        <th (click)="columnClick('phone')"
+            [class]="whichClass('phone')">Phone</th>
+        <th (click)="columnClick('email')"
+            [class]="whichClass('email')">Email</th>
         <th><button (click)="addNewContact()">Add New Contact</button></th>
       </tr>
-      <tr *ngFor="let contact of dataService.data">
+      <tr *ngFor="let contact of dataService.data | orderby:orderByColumn:direction">
         <td>{{contact.firstName}}</td>
         <td>{{contact.lastName}}</td>
         <td>{{contact.company}}</td>
@@ -26,7 +31,7 @@ import { DataService } from '../utils/data.service';
           <button (click)="onEdit(contact)">Edit</button>
         </td>
       </tr>
-    </table>  
+    </table>
   `,
   styles: [`
     table {
@@ -34,9 +39,21 @@ import { DataService } from '../utils/data.service';
       border-collapse: collapse;
       border: 1px solid lightgray;
     }
+    th.desc:before{
+      content: '▼ ';
+      font-size: small;
+    }
+    th.asc:before{
+      content: '▲ ';
+      font-size: small;
+    }
     th, td {
       text-align: left;
       padding: 20px;
+    }
+    th {
+      cursor: pointer;
+      user-select: none;
     }
     tr:nth-child(even) {
       background-color: #f2f2f2;
@@ -47,6 +64,9 @@ import { DataService } from '../utils/data.service';
   `]
 })
 export class ContactsGridComponent {
+  orderByColumn = 'firstName';
+  direction = 'desc';
+
   constructor(private dataService: DataService, public router: Router) {}
 
   onDelete(id) {
@@ -60,4 +80,25 @@ export class ContactsGridComponent {
   addNewContact() {
     this.router.navigate(['add-new-contact']);
   }
+
+  columnClick(columnName) {
+    if (this.orderByColumn === columnName) {
+      if (this.direction === 'desc') {
+        this.direction = 'asc';
+      } else {
+        this.direction = 'desc';
+      }
+    } else {
+      this.direction = 'desc';
+      this.orderByColumn = columnName;
+    }
+  }
+
+  whichClass(columnName) {
+    if (this.orderByColumn === columnName) {
+      return this.direction;
+    }
+    return '';
+  }
+
 }
