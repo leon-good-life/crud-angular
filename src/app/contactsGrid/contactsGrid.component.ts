@@ -1,4 +1,3 @@
-import { ContactFormComponent } from './../utils/contactForm.component';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../utils/data.service';
