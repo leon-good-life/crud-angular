@@ -5,10 +5,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 
+import { GridModule } from './utils/grid/grid.module';
+
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { ContactsGridComponent } from './contactsGrid/contactsGrid.component';
-import { OrderByPipe } from './utils/orderby.pipe';
 import { ContactFormComponent } from './utils/ContactForm.component';
 import { NewContactFormComponent } from './newContactForm/newContactForm.component';
 import { EditContactFormComponent } from './editContactForm/editContactForm.component';
@@ -21,15 +22,15 @@ import { DataService } from './utils/data.service';
     ContactsGridComponent,
     NewContactFormComponent,
     ContactFormComponent,
-    EditContactFormComponent,
-    OrderByPipe
+    EditContactFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GridModule
   ],
   providers: [
     DataService
