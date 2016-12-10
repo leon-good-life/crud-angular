@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContactFormComponent } from './ContactForm.component';
 import { NewContactFormComponent } from './newContactForm.component';
 import { EditContactFormComponent } from './editContactForm.component';
-import { DataService } from '../utils/data.service';
+import { StoreService } from '../utils/redux/store.service';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import { DataService } from '../utils/data.service';
     EditContactFormComponent
   ],
   providers: [
-    DataService
+    StoreService
   ]
 })
 export class ContactFormModule {}

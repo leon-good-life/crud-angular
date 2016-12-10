@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../utils/data.service';
+import { StoreService } from '../utils/redux/store.service';
 
 @Component({
   selector: 'edit-contact-form',
@@ -12,10 +12,10 @@ import { DataService } from '../utils/data.service';
 export class EditContactFormComponent {
   submitBtnText = 'Update contact';
   
-  constructor(public dataService: DataService, public router: Router) {}
+  constructor(public store: StoreService, public router: Router) {}
 
   submitEvent = (contact) => {
-    this.dataService.updateContact(contact);
+    this.store.dispatch(this.store.ACTION_CREATORS.updateContact(contact));
     this.router.navigate(['contacts-list']);
   }
 

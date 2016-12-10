@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../utils/data.service';
+import { StoreService } from '../utils/redux/store.service';
 
 @Component({
   selector: 'contacts-grid',
   template: `
     <h1>Contacts List</h1>
-    <h2 *ngIf="dataService.data.length === 0">Contacts list is empty.</h2>
+    <h2 *ngIf="store.getState().length === 0">Contacts list is empty.</h2>
     <div>
       <button (click)="addNewContact()"
               class="create-new-contact">Create new contact</button>
     </div>
-    <grid [data]="dataService.data"
+    <grid [data]="store.getState()"
           [hiddenColumns]="['id']"
           [orderByColumn]="'firstName'"
           [actions]="actions"></grid>
@@ -29,8 +29,7 @@ import { DataService } from '../utils/data.service';
   `]
 })
 export class ContactsGridComponent {
-
-  constructor(private dataService: DataService, public router: Router) {}
+  constructor(private store: StoreService, public router: Router) {}
 
   actions = [{
       name: 'Delete',
@@ -42,7 +41,7 @@ export class ContactsGridComponent {
   ];
 
   onDelete(id) {
-    this.dataService.deleteContact(id);
+    this.store.dispatch(this.store.ACTION_CREATORS.deleteContact(id));
   }
 
   onEdit(contactObj) {

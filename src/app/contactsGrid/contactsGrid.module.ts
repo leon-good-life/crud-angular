@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ContactsGridComponent } from './contactsGrid.component';
 import { GridModule } from '../utils/grid/grid.module';
-import { DataService } from '../utils/data.service';
+import { StoreService } from '../utils/redux/store.service';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { DataService } from '../utils/data.service';
     ContactsGridComponent
   ],
   providers: [
-    DataService
+    StoreService
   ]
 })
 export class ContactsGridModule {}
