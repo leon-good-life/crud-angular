@@ -6,7 +6,11 @@ import { DataService } from '../utils/data.service';
   selector: 'contacts-grid',
   template: `
     <h1>Contacts List</h1>
-    <table>
+    <div *ngIf="dataService.data.length === 0">
+      <h2>Contacts list is empty.</h2>
+      <button (click)="addNewContact()">Create new contact</button>
+    </div>
+    <table *ngIf="dataService.data.length > 0">
       <tr>
         <th (click)="columnClick('firstName')"
             [class]="whichClass('firstName')">First Name</th>
