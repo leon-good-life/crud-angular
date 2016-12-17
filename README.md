@@ -5,7 +5,7 @@ CRUD application created using Angular 2.
 # Backend
 
 I developed a backend using nodeJS/expressJS and MongoDB for this app:
-[https://github.com/leon-good-life/smallProjects/tree/master/contacts-backend](https://github.com/leon-good-life/smallProjects/tree/master/contacts-backend)
+[https://github.com/leon-good-life/backendCRUD](https://github.com/leon-good-life/backendCRUD)
 
 # screenshots:
 ![screenshots](screenshots/1.png)
