@@ -1,4 +1,4 @@
-# NgCRUD
+# CrudAngular
 
 CRUD application created using Angular 2.
 
