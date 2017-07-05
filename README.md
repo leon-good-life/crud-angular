@@ -1,6 +1,6 @@
 # CrudAngular
 
-CRUD application created using Angular 2.
+CRUD application written in Angular 4.
 
 # Backend
 
